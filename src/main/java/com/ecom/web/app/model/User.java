@@ -1,13 +1,11 @@
 package com.ecom.web.app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@Entity(name = "user")
+@Entity
+@Table(name = "user")
 public class User {
 
     @Id
@@ -29,6 +27,12 @@ public class User {
         this.password = password;
         this.roles = roles;
         this.userCreatedAt = userCreatedAt;
+    }
+
+    public User(String email, String password, String roles) {
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
     }
 
     public int getId() {
